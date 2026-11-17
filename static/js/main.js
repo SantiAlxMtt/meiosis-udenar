@@ -551,6 +551,48 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             navigateToSlide(totalSlides - 1);
         }
+
+    // =========================================================================
+    // 7. GESTOS TACTILES (SWIPE) PARA CELULARES Y TABLETS
+    // =========================================================================
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    document.addEventListener(
+        "touchstart",
+        (e) => {
+            if (!e.touches || e.touches.length !== 1) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        },
+        { passive: true }
+    );
+
+    document.addEventListener(
+        "touchend",
+        (e) => {
+            if (
+                (lightboxModal && lightboxModal.classList.contains("open")) ||
+                (splitViewModal && splitViewModal.classList.contains("open"))
+            ) {
+                return;
+            }
+            if (!e.changedTouches || e.changedTouches.length !== 1) return;
+
+            const deltaX = e.changedTouches[0].clientX - touchStartX;
+            const deltaY = e.changedTouches[0].clientY - touchStartY;
+
+            // Solo cambia de diapositiva si el deslizamiento es claramente horizontal
+            if (Math.abs(deltaX) > 65 && Math.abs(deltaX) > Math.abs(deltaY) * 1.6) {
+                if (deltaX < 0) {
+                    navigateToSlide(currentIndex + 1);
+                } else {
+                    navigateToSlide(currentIndex - 1);
+                }
+            }
+        },
+        { passive: true }
+    );
     });
 });
 
