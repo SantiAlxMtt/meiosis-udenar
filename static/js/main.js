@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mediaItems = Array.from(document.querySelectorAll(".lightbox-item"));
     const themeToggleBtn = document.getElementById("themeToggleBtn");
 
-    // Elementos de la Vista Dividida
+    // Split View Modal elements
     const splitViewModal = document.getElementById("splitViewModal");
     const splitViewDialog = document.getElementById("splitViewDialog");
     const splitCloseBtn = document.getElementById("splitCloseBtn");
@@ -18,11 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const splitCardKeywords = document.getElementById("splitCardKeywords");
     const splitConceptsList = document.getElementById("splitConceptsList");
 
-    // Elementos del Lightbox Nativo a Pantalla Completa
+    // Native Fullscreen Lightbox elements
     const lightboxModal = document.getElementById("lightboxModal");
     const lightboxContent = document.getElementById("lightboxContent");
 
     let currentIndex = 0;
+    let isTransitioning = false;
     const totalSlides = slides.length;
 
     const VIDEO_SVG_ICON = `
@@ -40,15 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     // =========================================================================
-    // 1. NAVEGACIÓN DIRECCIONAL 3D BIDIRECCIONAL ENTRE LAS 16 DIAPOSITIVAS /SantixCode
+    // 1. 3D DIRECTIONAL SLIDE NAVIGATION WITH TRANSITION LOCK
     // =========================================================================
     function syncSlideDirectionalStates(activeIdx) {
         slides.forEach((slide, idx) => {
-            slide.classList.remove("active", "is-past", "is-future");
+            slide.classList.remove("active", "is-past", "is-future", "prev-exit");
             if (idx === activeIdx) {
                 slide.classList.add("active");
+                slide.scrollTop = 0;
             } else if (idx < activeIdx) {
-                slide.classList.add("is-past");
+                slide.classList.add("is-past", "prev-exit");
             } else {
                 slide.classList.add("is-future");
             }
@@ -60,12 +62,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function navigateToSlide(targetIndex) {
-        if (targetIndex < 0 || targetIndex >= totalSlides || targetIndex === currentIndex) {
+        if (
+            isTransitioning ||
+            targetIndex < 0 ||
+            targetIndex >= totalSlides ||
+            targetIndex === currentIndex
+        ) {
             return;
         }
+
+        isTransitioning = true;
         currentIndex = targetIndex;
         syncSlideDirectionalStates(currentIndex);
+
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 420);
     }
+
+    syncSlideDirectionalStates(0);
 
     dotButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -75,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =========================================================================
-    // 2. SISTEMA DE TEMAS (MODO OSCURO / CLARO) + CAMBIO DINÁMICO DE IMÁGENES /SantixCode
+    // 2. THEME SYSTEM (DARK / LIGHT MODE) AND DYNAMIC IMAGE SWITCHING
     // =========================================================================
     function getActiveTheme() {
         return htmlRoot.getAttribute("data-theme") || "dark";
@@ -133,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================================
-    // 3. LIGHTBOX NATIVO A PANTALLA COMPLETA /SantixCode
+    // 3. NATIVE FULLSCREEN LIGHTBOX
     // =========================================================================
     function openLightboxWithNode(node) {
         if (!lightboxModal || !lightboxContent) return;
@@ -195,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================================
-    // 4. GENERADOR DE PLACEHOLDERS E INTERACCIÓN DE IMÁGENES / SIMULACIONES /SantixCode
+    // 4. PLACEHOLDER GENERATOR AND MEDIA INTERACTION
     // =========================================================================
     function isInsideSplitCardPreview(el) {
         const parentCard = el.closest(".interactive-card");
@@ -274,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =========================================================================
-    // 5. ACORDEÓN EXCLUSIVO BENTO-FLEX EN TARJETAS DE CONCEPTOS /SantixCode
+    // 5. EXCLUSIVE BENTO-FLEX ACCORDION IN CONCEPT CARDS
     // =========================================================================
     function syncConceptListState(container) {
         const hasExpanded = container.querySelector(".concept-item.expanded") !== null;
@@ -423,6 +438,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const stageMediaNode = buildSplitStageMediaNode(template, card);
         splitSimStage.appendChild(stageMediaNode);
 
+        if (splitViewDialog) {
+            splitViewDialog.scrollTop = 0;
+        }
+
         card.classList.add("revealed");
         splitViewModal.classList.add("open");
         splitViewModal.setAttribute("aria-hidden", "false");
@@ -502,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================================
-    // 6. PANTALLA COMPLETA CON TECLA 'F' Y CONTROLES DE TECLADO /SantixCode
+    // 6. FULLSCREEN ('F' KEY) AND KEYBOARD CONTROLS
     // =========================================================================
     function toggleFullscreen() {
         if (!document.fullscreenElement) {
@@ -551,17 +570,27 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             navigateToSlide(totalSlides - 1);
         }
+    });
 
     // =========================================================================
-    // 7. GESTOS TACTILES (SWIPE) PARA CELULARES Y TABLETS
+    // 7. SINGLE-INSTANCE TOUCH SWIPE FOR MOBILE AND TABLETS
     // =========================================================================
     let touchStartX = 0;
     let touchStartY = 0;
+    let isSingleTouch = false;
 
     document.addEventListener(
         "touchstart",
         (e) => {
-            if (!e.touches || e.touches.length !== 1) return;
+            if (!e.touches || e.touches.length !== 1) {
+                isSingleTouch = false;
+                return;
+            }
+            if (e.target.closest(".dot-navigation")) {
+                isSingleTouch = false;
+                return;
+            }
+            isSingleTouch = true;
             touchStartX = e.touches[0].clientX;
             touchStartY = e.touches[0].clientY;
         },
@@ -571,6 +600,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener(
         "touchend",
         (e) => {
+            if (!isSingleTouch) return;
+            isSingleTouch = false;
+
             if (
                 (lightboxModal && lightboxModal.classList.contains("open")) ||
                 (splitViewModal && splitViewModal.classList.contains("open"))
@@ -582,8 +614,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const deltaX = e.changedTouches[0].clientX - touchStartX;
             const deltaY = e.changedTouches[0].clientY - touchStartY;
 
-            // Solo cambia de diapositiva si el deslizamiento es claramente horizontal
-            if (Math.abs(deltaX) > 65 && Math.abs(deltaX) > Math.abs(deltaY) * 1.6) {
+            if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.6) {
                 if (deltaX < 0) {
                     navigateToSlide(currentIndex + 1);
                 } else {
@@ -593,7 +624,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         { passive: true }
     );
-    });
 });
 
 // ===================
