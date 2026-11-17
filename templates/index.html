@@ -1,0 +1,1604 @@
+<!--suppress HtmlUnknownTarget -->
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meiosis · Universidad de Nariño</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body data-theme="dark">
+    <!-- Lienzo -->
+    <div class="ambient-canvas" aria-hidden="true">
+        <div class="ambient-orb orb-cyan"></div>
+        <div class="ambient-orb orb-violet"></div>
+        <div class="ambient-orb orb-emerald"></div>
+        <div class="ambient-halo"></div>
+        <div class="ambient-vignette"></div>
+    </div>
+
+    <!-- Contenedor Principal de las 16 Diapositivas -->
+    <main class="deck-viewport" id="deckViewport">
+
+        <!-- =================================================================
+             DIAPOSITIVA 1: PORTADA /SantixCode
+             ================================================================= -->
+        <section class="slide active" data-slide="0">
+            <div class="hero-stage">
+                <div class="bivalent-emblem hero-reveal" style="--stagger: 1;">
+                    <div class="chromatid c-left"></div>
+                    <div class="chromatid c-right"></div>
+                    <div class="chiasma-node"></div>
+                </div>
+
+                <span class="institution-badge hero-reveal" style="--stagger: 2;">
+                    UNIVERSIDAD DE NARIÑO · BIOLOGÍA CELULAR
+                </span>
+
+                <h1 class="hero-title hero-reveal" style="--stagger: 3;">MEIOSIS</h1>
+
+                <div class="speakers-grid hero-reveal" style="--stagger: 4;">
+                    <!-- Persona 1 -->
+                    <article class="interactive-card accordion-card" tabindex="0">
+                        <div class="card-top">
+                            <span class="index-chip">01</span>
+                            <h3>Manuel Latorre</h3>
+                        </div>
+                        <div class="accordion-drawer">
+                            <div class="accordion-inner">
+                                <div class="accordion-summary">
+                                    <div class="summary-point">
+                                        <h4>Generalidades e Interfase Premeiótica</h4>
+                                    </div>
+                                    <div class="summary-point">
+                                        <h4>Arquitectura de las Subetapas de Profase I</h4>
+                                    </div>
+                                    <div class="summary-point">
+                                        <h4>Mecanismo Molecular del Sobrecruzamiento</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Persona 2 -->
+                    <article class="interactive-card accordion-card highlight-violet" tabindex="0">
+                        <div class="card-top">
+                            <span class="index-chip">02</span>
+                            <h3>Sarita Alegria</h3>
+                        </div>
+                        <div class="accordion-drawer">
+                            <div class="accordion-inner">
+                                <div class="accordion-summary">
+                                    <div class="summary-point">
+                                        <h4>Segregación Reduccional en Meiosis I</h4>
+                                    </div>
+                                    <div class="summary-point">
+                                        <h4>División Ecuacional en Meiosis II</h4>
+                                    </div>
+                                    <div class="summary-point">
+                                        <h4>Procedimiento de Laboratorio</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Persona 3 -->
+                    <article class="interactive-card accordion-card highlight-emerald" tabindex="0">
+                        <div class="card-top">
+                            <span class="index-chip">03</span>
+                            <h3>Santiago Delgado</h3>
+                        </div>
+                        <div class="accordion-drawer">
+                            <div class="accordion-inner">
+                                <div class="accordion-summary">
+                                    <div class="summary-point">
+                                        <h4>Análisis Microfotográfico a 40X y 100X</h4>
+                                    </div>
+                                    <div class="summary-point">
+                                        <h4>Discusión Teórica</h4>
+                                    </div>
+                                    <div class="summary-point">
+                                        <h4>No Disyunción: Patau, Turner y Down</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 2: INTRODUCCIÓN Y GENERALIDADES /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="1">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">02</span>
+                <h2 class="slide-heading">INTRODUCCIÓN Y DIVISIÓN REDUCCIONAL</h2>
+            </header>
+
+            <div class="layout-asymmetric-2" style="--i: 2;">
+                <div class="media-box">
+                    <img class="lightbox-item theme-img"
+                         src="img_meiosis_general_dark.jpg"
+                         data-dark-src="img_meiosis_general_dark.jpg"
+                         data-light-src="img_meiosis_general_light.jpg"
+                         alt="Esquema general de la división meiótica">
+                </div>
+
+                <div class="vertical-stack">
+                    <article class="interactive-card preview-4-3-card" data-split-pos="left">
+                        <div class="card-top">
+                            <span class="index-chip">FUNDAMENTO 01</span>
+                            <h3>Reducción Cromosómica</h3>
+                        </div>
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_reduccional_ecuacional.jpg"
+                                 data-dark-src="img_reduccional_ecuacional.jpg"
+                                 data-light-src="img_reduccional_ecuacional.jpg"
+                                 alt="Reducción cromosómica a células haploides">
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_reduccional_ecuacional.jpg"
+                                  data-light-src="img_reduccional_ecuacional.jpg">
+                            <div class="concept-item">
+                                <h4>Estabilidad del Ciclo de Vida Sexual</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>La meiosis (del griego <em>reducción</em>) reduce a la mitad el número de juegos cromosómicos, pasando de diploide (2n) a haploide (n). De este modo compensa la duplicación cromosómica que ocurre en la fecundación y mantiene constante el cariotipo de la especie entre generaciones (Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Dos Divisiones Sucesivas sin Síntesis Intermedia</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Tras una única fase de replicación de ADN, el proceso incorpora dos divisiones nucleares y celulares consecutivas —Meiosis I (reduccional) y Meiosis II (ecuacional)— que distribuyen las cuatro cromátidas de cada par homólogo en cuatro núcleos hijos haploides (Udenar, 2017; Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+
+                    <article class="interactive-card preview-4-3-card highlight-violet" data-split-pos="right">
+                        <div class="card-top">
+                            <span class="index-chip">FUNDAMENTO 02</span>
+                            <h3>Apareamiento y Variabilidad</h3>
+                        </div>
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_sobrecruzamiento_dark.jpg"
+                                 data-dark-src="img_sobrecruzamiento_dark.jpg"
+                                 data-light-src="img_sobrecruzamiento_light.jpg"
+                                 alt="Apareamiento de homólogos y variabilidad genética">
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_sobrecruzamiento_dark.jpg"
+                                  data-light-src="img_sobrecruzamiento_light.jpg">
+                            <div class="concept-item">
+                                <h4>Separación de Homólogos vs. Cromátidas Hermanas</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>En la Meiosis I los cromosomas homólogos se aparean selectivamente en Profase I para luego segregar hacia polos opuestos en Anafase I; en cambio, la Meiosis II separa equitativamente las cromátidas hermanas hacia las células finales (Udenar, 2017; Urry et al., 2024).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Doble Motor de Diversidad Genética</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>La recombinación genética (sobrecruzamiento) intercambia segmentos de ADN entre cromátidas no hermanas generando cromosomas recombinantes con nuevas combinaciones alélicas, mientras que la distribución independiente de homólogos maternos y paternos produce 2<sup>n</sup> combinaciones posibles de gametos (Karp et al., 2020; Urry et al., 2024).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 3: INTERFASE PREMEIÓTICA /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="2">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">03</span>
+                <h2 class="slide-heading">PRIMERA ETAPA: INTERFASE PREMEIÓTICA</h2>
+            </header>
+
+            <div class="layout-asymmetric-2" style="--i: 2;">
+                <!-- Contenedor Principal para la Simulación de Interfase -->
+                <div class="media-box direct-sim-box">
+                    <video class="lightbox-item" src="sim_interfase.mp4" autoplay loop muted playsinline></video>
+                </div>
+
+                <!-- Tarjetas de Fase S y Célula Diploide G2 -->
+                <div class="vertical-stack">
+                    <article class="interactive-card preview-4-3-card" data-split-pos="left">
+                        <div class="card-top">
+                            <span class="index-chip">PRELUDIO MEIÓTICO · 01</span>
+                            <h3>Fase S Premeiótica</h3>
+                        </div>
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_replicacion_dark.jpg"
+                                 data-dark-src="img_replicacion_dark.jpg"
+                                 data-light-src="img_replicacion_light.jpg"
+                                 alt="Fase S premeiótica">
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_replicacion_dark.jpg"
+                                  data-light-src="img_replicacion_light.jpg">
+                            <div class="concept-item">
+                                <h4>Síntesis Completa del ADN Previa a Meiosis I</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Al igual que en la división mitótica, la entrada a la meiosis está precedida por una interfase que incluye la replicación íntegra del ADN cromosómico, duplicando el contenido nuclear de 2C a 4C mientras la célula conserva su condición diploide (2n) (Karp et al., 2020; Urry et al., 2024).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Duración Extendida de la Fase S Premeiótica</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>La fase S premeiótica suele prolongarse varias veces más que una fase S premitótica convencional, ya que durante ella se establecen modificaciones en la cromatina y proteínas específicas necesarias para el reconocimiento homólogo y la recombinación (Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+
+                    <article class="interactive-card preview-4-3-card highlight-emerald" data-split-pos="right">
+                        <div class="card-top">
+                            <span class="index-chip">PRELUDIO MEIÓTICO · 02</span>
+                            <h3>Célula Diploide en G2</h3>
+                        </div>
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_pares_homologos_dark.jpg"
+                                 data-dark-src="img_pares_homologos_dark.jpg"
+                                 data-light-src="img_pares_homologos_light.jpg"
+                                 alt="Célula diploide G2 con cromátidas hermanas">
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_pares_homologos_dark.jpg"
+                                  data-light-src="img_pares_homologos_light.jpg">
+                            <div class="concept-item">
+                                <h4>Organización de Pares Homólogos Replicados</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Al concluir la fase G<sub>2</sub> premeiótica, la célula diploide contiene dos juegos cromosómicos (uno materno y otro paterno) en los que cada cromosoma está constituido por dos cromátidas hermanas idénticas (Karp et al., 2020; Urry et al., 2024).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Cohesión de Cromátidas Hermanas</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Las dos copias de cada cromosoma replicado permanecen estrechamente asociadas a lo largo de toda su longitud y en el centrómero mediante complejos proteicos de cohesina, cuya liberación escalonada regulará las dos divisiones meióticas (Karp et al., 2020; Urry et al., 2024).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 4: PROFASE I PROFUNDA (LEPTOTENO Y CIGOTENO) /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="3">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">04</span>
+                <h2 class="slide-heading">PROFASE I: LEPTOTENO Y CIGOTENO</h2>
+            </header>
+
+            <div class="layout-prophase-early" style="--i: 2;">
+                <!-- Contenedor Gigante para la Simulación General de Profase I -->
+                <div class="media-box direct-sim-box">
+                    <video class="lightbox-item" src="sim_profase1.mp4" autoplay loop muted playsinline></video>
+                </div>
+
+                <!-- Subetapas Iniciales -->
+                <div class="substage-stack">
+                    <article class="interactive-card split-horizontal-card" data-split-pos="left">
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_leptoteno_dark.jpg"
+                                 data-dark-src="img_leptoteno_dark.jpg"
+                                 data-light-src="img_leptoteno_light.jpg"
+                                 alt="Leptoteno y bouquet telomérico">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">SUBETAPA 01</span>
+                            <h3>Leptoteno</h3>
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_leptoteno_dark.jpg"
+                                  data-light-src="img_leptoteno_light.jpg">
+                            <div class="concept-item">
+                                <h4>Compactación Inicial e Inicio del Reconocimiento</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Los cromosomas duplicados comienzan a condensarse y se hacen visibles al microscopio óptico como filamentos finos entrelazados cuyas dos cromátidas hermanas aún no se distinguen por separado. En esta etapa ya se inician las primeras rupturas de doble cadena en el ADN (Udenar, 2017; Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Agrupamiento Telomérico en «Bouquet»</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Hacia el final del leptoteno, los telómeros se anclan a la superficie interna de la envoltura nuclear y se congregan en una región polarizada del núcleo, adoptando una configuración similar a los tallos de un ramo de flores («bouquet») que impulsa el alineamiento homólogo (Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card highlight-violet" data-split-pos="right">
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_cigoteno_dark.jpg"
+                                 data-dark-src="img_cigoteno_dark.jpg"
+                                 data-light-src="img_cigoteno_light.jpg"
+                                 alt="Cigoteno y complejo sinaptonemal">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">SUBETAPA 02</span>
+                            <h3>Cigoteno</h3>
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_cigoteno_dark.jpg"
+                                  data-light-src="img_cigoteno_light.jpg">
+                            <div class="concept-item">
+                                <h4>Sinapsis y Constitución del Bivalente (Tétrada)</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Los cromosomas homólogos se aparean estrechamente gen a gen a lo largo de toda su longitud mediante el proceso de sinapsis. Cada par de homólogos sinapsados conforma un bivalente o tétrada integrada por cuatro cromátidas (Udenar, 2017; Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Complejo Sinaptonemal en Escalera con Cohesina</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>La sinapsis va acompañada del ensamblaje del complejo sinaptonemal: un andamiaje proteico en forma de escalera cuyos filamentos transversales conectan dos elementos laterales compuestos principalmente por cohesina, desde los cuales se proyectan los bucles de cromatina de las cromátidas hermanas (Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 5: PAQUITENO, DIPLOTENO Y DIACINESIS /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="4">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">05</span>
+                <h2 class="slide-heading">PAQUITENO, DIPLOTENO Y DIACINESIS</h2>
+            </header>
+
+            <div class="layout-triptych-molecular" style="--i: 2;">
+                <!-- Paquiteno y Sobrecruzamiento -->
+                <article class="interactive-card highlight-emerald" data-split-pos="left">
+                    <div class="card-top">
+                        <span class="index-chip">SUBETAPA 03</span>
+                        <h3>Paquiteno</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_paquiteno_dark.jpg"
+                             data-dark-src="img_paquiteno_dark.jpg"
+                             data-light-src="img_paquiteno_light.jpg"
+                             alt="Paquiteno, Spo11 y Uniones de Holliday">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_sobrecruzamiento.mp4">
+                        <div class="concept-item">
+                            <h4>Nódulos de Recombinación en el Bivalente</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>El inicio del paquiteno queda marcado por un complejo sinaptonemal completamente formado que mantiene unidos a los bivalentes cortos y gruesos. En su centro se localizan cuerpos electrodensos de ~100 nm llamados nódulos de recombinación, que albergan la maquinaria enzimática del sobrecruzamiento (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Rupturas de Doble Cadena por Spo11 y Resección</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Molecularmente, la enzima Spo11 introduce rupturas de doble cadena (DSB) en uno de los dúplex de ADN alineados; a continuación, una exonucleasa 5' → 3' amplía la brecha (resección) generando colas de cadena sencilla con extremos 3' OH expuestos (Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Invasión de Cadenas (Rad51) y Uniones de Holliday</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Mediante recombinasas como Rad51 (homóloga eucariota de RecA), una cola 3' invade el dúplex de una cromátida no hermana. Tras la síntesis reparadora de ADN y ligación se forma un heterodúplex unido covalentemente por dos cruces denominados uniones de Holliday, cuya migración de ramificación y posterior escisión asimétrica genera el sobrecruzamiento (Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Diploteno -->
+                <article class="interactive-card" data-split-pos="right">
+                    <div class="card-top">
+                        <span class="index-chip">SUBETAPA 04</span>
+                        <h3>Diploteno</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_diploteno_dark.jpg"
+                             data-dark-src="img_diploteno_dark.jpg"
+                             data-light-src="img_diploteno_light.jpg"
+                             alt="Diploteno y quiasmas">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_diploteno_dark.jpg"
+                              data-light-src="img_diploteno_light.jpg">
+                        <div class="concept-item">
+                            <h4>Disolución del Complejo Sinaptonemal</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>El inicio del diploteno se reconoce por la disolución del complejo sinaptonemal, lo que permite que los cromosomas homólogos del bivalente tiendan a separarse parcialmente entre sí a nivel del centrómero mientras continúa su condensación (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Retención por Quiasmas y Cohesión de Brazos</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Los homólogos permanecen unidos en puntos específicos con forma de X denominados quiasmas, que representan la manifestación citogenética visible de los sobrecruzamientos previos y se estabilizan gracias a la cohesión entre cromátidas hermanas en los brazos adyacentes (Udenar, 2017; Karp et al., 2020; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Diacinesis -->
+                <article class="interactive-card highlight-rose" data-split-pos="left">
+                    <div class="card-top">
+                        <span class="index-chip">SUBETAPA 05</span>
+                        <h3>Diacinesis</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_diacinesis_dark.jpg"
+                             data-dark-src="img_diacinesis_dark.jpg"
+                             data-light-src="img_diacinesis_light.jpg"
+                             alt="Diacinesis">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_diacinesis_dark.jpg"
+                              data-light-src="img_diacinesis_light.jpg">
+                        <div class="concept-item">
+                            <h4>Compactación Pronunciada de los Bivalentes</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Los bivalentes se recompactan hasta alcanzar un nivel muy alto de condensación, observándose como cuerpos gruesos en los que los centrómeros de cada par de homólogos inician su orientación hacia polos celulares opuestos (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Ensamblaje del Huso y Desorganización Nuclear</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La etapa final de la Profase I concluye con el ensamblaje del huso meiótico, la desaparición de los nucléolos, la desorganización de la envoltura nuclear y el desplazamiento de las tétradas hacia la placa metafásica (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 6: CONTINUACIÓN DE MEIOSIS I /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="5">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">06</span>
+                <h2 class="slide-heading">CONTINUACIÓN DE MEIOSIS I</h2>
+            </header>
+
+            <div class="layout-three-videos" style="--i: 2;">
+                <!-- Metafase I -->
+                <article class="interactive-card" data-split-pos="left">
+                    <div class="card-top">
+                        <span class="index-chip">MEIOSIS I · ETAPA 02</span>
+                        <h3>Metafase I</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_metafase1_dark.jpg"
+                             data-dark-src="img_metafase1_dark.jpg"
+                             data-light-src="img_metafase1_light.jpg"
+                             alt="Metafase I">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_metafase1.mp4">
+                        <div class="concept-item">
+                            <h4>Disposición de Parejas Homólogas en el Ecuador</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Con su máximo grado de condensación, sobre la placa metafásica se alinean parejas de cromosomas homólogos apareados (n bivalentes) sujetos por al menos un quiasma, a diferencia de los 2n cromosomas individuales de la metafase mitótica (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Co-orientación de Cinetocoros y Azar Parental</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Los dos cinetocoros de las cromátidas hermanas de cada homólogo se disponen lado a lado orientados hacia el mismo polo, mientras los homólogos paterno y materno se conectan a microtúbulos de polos opuestos con una orientación completamente aleatoria en cada bivalente (Karp et al., 2020; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Anafase I -->
+                <article class="interactive-card highlight-violet" data-split-pos="right">
+                    <div class="card-top">
+                        <span class="index-chip">MEIOSIS I · ETAPA 03</span>
+                        <h3>Anafase I</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_anafase1_dark.jpg"
+                             data-dark-src="img_anafase1_dark.jpg"
+                             data-light-src="img_anafase1_light.jpg"
+                             alt="Anafase I">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_anafase1.mp4">
+                        <div class="concept-item">
+                            <h4>Disolución de Quiasmas y Segregación Independiente</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La escisión proteolítica de las moléculas de cohesina a lo largo de los brazos de las cromátidas libera los quiasmas y permite que los dos cromosomas homólogos de cada bivalente migren hacia polos opuestos, constituyendo la base citológica de la ley de segregación independiente de Mendel (Karp et al., 2020; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Protección del Centrómero y Reducción a n</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La cohesina localizada en el centrómero queda protegida frente a la proteólisis; gracias a ello, las dos cromátidas hermanas permanecen firmemente unidas y se desplazan juntas hacia el mismo polo, reduciendo el número cromosómico a n cromosomas duplicados en cada polo celular (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Telofase I -->
+                <article class="interactive-card highlight-emerald" data-split-pos="left">
+                    <div class="card-top">
+                        <span class="index-chip">MEIOSIS I · ETAPA 04</span>
+                        <h3>Telofase I</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_telofase1_dark.jpg"
+                             data-dark-src="img_telofase1_dark.jpg"
+                             data-light-src="img_telofase1_light.jpg"
+                             alt="Telofase I">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_telofase1.mp4">
+                        <div class="concept-item">
+                            <h4>Reorganización Nuclear en Ambos Polos</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Finalizada la migración anafásica de los homólogos, cada polo celular agrupa un conjunto haploide (n) de cromosomas replicados; éstos experimentan cierta descondensación y reaparecen los nucléolos y la envoltura nuclear (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Citocinesis I y Células Hijas con Cantidad 2C</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La citocinesis (mediada en plantas por el fragmoplasto y la formación de la placa celular) origina dos células hijas haploides (n) que poseen una cantidad 2C de ADN nuclear, dado que cada cromosoma aún consta de dos cromátidas hermanas con regiones recombinadas (Udenar, 2017; Karp et al., 2020; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 7: MEIOSIS II /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="6">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">07</span>
+                <h2 class="slide-heading">MEIOSIS II E INTERCINESIS</h2>
+            </header>
+
+            <div class="layout-quad-matrix" style="--i: 2;">
+                <!-- Profase II -->
+                <article class="interactive-card split-horizontal-card" data-split-pos="left">
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_profase2_dark.jpg"
+                             data-dark-src="img_profase2_dark.jpg"
+                             data-light-src="img_profase2_light.jpg"
+                             alt="Profase II">
+                    </div>
+                    <div class="card-body">
+                        <span class="index-chip">MEIOSIS II · ETAPA 01</span>
+                        <h3>Profase II</h3>
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_profase2.mp4">
+                        <div class="concept-item">
+                            <h4>Intercinesis sin Replicación del ADN</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La etapa transitoria entre Meiosis I y Meiosis II se denomina intercinesis; en ella no ocurre síntesis de ADN porque los n cromosomas ya están replicados y poseen dos cromátidas desde la interfase premeiótica (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Morfología en Aspa y Recompactación</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Es una fase breve y mucho más simple que la Profase I: si la envoltura nuclear se había reconstruido, vuelve a romperse, se organiza un nuevo huso y aparecen n cromosomas con ambas cromátidas divergentes unidas solo por su centrómero, mostrando aspecto de aspa (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Metafase II -->
+                <article class="interactive-card split-horizontal-card highlight-violet" data-split-pos="right">
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_metafase2_dark.jpg"
+                             data-dark-src="img_metafase2_dark.jpg"
+                             data-light-src="img_metafase2_light.jpg"
+                             alt="Metafase II">
+                    </div>
+                    <div class="card-body">
+                        <span class="index-chip">MEIOSIS II · ETAPA 02</span>
+                        <h3>Metafase II</h3>
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_metafase2.mp4">
+                        <div class="concept-item">
+                            <h4>Alineación Ecuatorial de n Cromosomas</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Los n cromosomas se disponen individualmente en la placa metafásica de forma semejante a una mitosis; sin embargo, debido al sobrecruzamiento ocurrido en Profase I, las dos cromátidas hermanas de cada cromosoma ya no son genéticamente idénticas (Udenar, 2017; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Cinetocoros Hermanos hacia Polos Opuestos</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>A diferencia de la Metafase I, los cinetocoros de las cromátidas hermanas ahora se sitúan en lados opuestos del cromosoma y quedan unidos a fibras cromosómicas del huso que provienen de polos contrarios (Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Anafase II -->
+                <article class="interactive-card split-horizontal-card highlight-emerald" data-split-pos="left">
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_anafase2_dark.jpg"
+                             data-dark-src="img_anafase2_dark.jpg"
+                             data-light-src="img_anafase2_light.jpg"
+                             alt="Anafase II">
+                    </div>
+                    <div class="card-body">
+                        <span class="index-chip">MEIOSIS II · ETAPA 03</span>
+                        <h3>Anafase II</h3>
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_anafase2.mp4">
+                        <div class="concept-item">
+                            <h4>Escisión de la Cohesina Centromérica</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La degradación proteolítica de la cohesina que permanecía en el centrómero permite la escisión sincrónica de los centrómeros que mantenían unidas a las cromátidas hermanas (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Separación Ecuacional hacia Polos Opuestos</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Las cromátidas hermanas —convertidas ya en cromosomas individuales no duplicados— segregan hacia polos opuestos; en cada polo celular se observan n cromosomas constituidos por una sola cromátida (Udenar, 2017; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Telofase II -->
+                <article class="interactive-card split-horizontal-card highlight-rose" data-split-pos="right">
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_telofase2_dark.jpg"
+                             data-dark-src="img_telofase2_dark.jpg"
+                             data-light-src="img_telofase2_light.jpg"
+                             alt="Telofase II">
+                    </div>
+                    <div class="card-body">
+                        <span class="index-chip">MEIOSIS II · ETAPA 04</span>
+                        <h3>Telofase II</h3>
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="video"
+                              data-sim-src="sim_telofase2.mp4">
+                        <div class="concept-item">
+                            <h4>Descondensación y Reaparición Nuclear</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Concluye la migración polar de los n cromosomas de una sola cromátida, los cuales comienzan a descondensarse mientras se reorganizan nuevamente el nucléolo y la envoltura nuclear alrededor de cada grupo cromosómico (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Cuatro Células Haploides Genéticamente Distintas</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Tras la citocinesis se obtienen como producto final cuatro células haploides con n cromosomas no duplicados (cantidad 1C de ADN nuclear), genéticamente diferentes entre sí y respecto a la célula diploide original (Udenar, 2017; Karp et al., 2020; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 8: PROCEDIMIENTO DE LABORATORIO /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="7">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">08</span>
+                <h2 class="slide-heading">PROCEDIMIENTO DE LABORATORIO</h2>
+            </header>
+
+            <div class="layout-protocol-steps" style="--i: 2;">
+                <!-- Paso 1 -->
+                <article class="interactive-card protocol-card" data-split-pos="left">
+                    <span class="step-pill">PASO 01 · FIJACIÓN 3:1</span>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_fijacion.jpg"
+                             data-dark-src="img_fijacion.jpg"
+                             data-light-src="img_fijacion.jpg"
+                             alt="Anteras de agapanto o astromelia y fijación 3:1">
+                    </div>
+                    <div class="card-top">
+                        <h3>Agapanto o Astromelia</h3>
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_fijacion.jpg"
+                              data-light-src="img_fijacion.jpg">
+                        <div class="concept-item">
+                            <h4>Selección de Anteras Jóvenes</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Se emplean flores de agapanto (<em>Agapanthus</em>) o bulbos/botones florales de astromelia (<em>Alstroemeria aurantiaca</em> D. Don), seleccionando con hojas de bisturí y agujas de disección las anteras más jóvenes (de color blanco), donde ocurre activamente la microesporogénesis (Udenar, 2017).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Fijación en Solución 3:1 durante 48 Horas</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Las anteras se sumergen en solución fijadora compuesta por etanol absoluto y ácido acético glacial en proporción 3:1 durante 48 horas previas a la práctica, deteniendo las divisiones celulares y preservando intacta la morfología cromosómica (Udenar, 2017).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Paso 2 -->
+                <article class="interactive-card protocol-card highlight-rose" data-split-pos="right">
+                    <span class="step-pill">PASO 02 · CRISOL A 60 °C</span>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_crisol_orceina_60c.jpg"
+                             data-dark-src="img_crisol_orceina_60c.jpg"
+                             data-light-src="img_crisol_orceina_60c.jpg"
+                             alt="Orceína acética en crisol a 60 °C">
+                    </div>
+                    <div class="card-top">
+                        <h3>Orceína Acética a 60 °C</h3>
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_crisol_orceina_60c.jpg"
+                              data-light-src="img_crisol_orceina_60c.jpg">
+                        <div class="concept-item">
+                            <h4>Calentamiento en Crisol hasta Observar Vapores</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Las anteras blancas seleccionadas se colocan en un crisol o cápsula de vidrio con unas gotas de orceína acética y se calientan con mechero a 60 °C hasta observar el desprendimiento de vapores, favoreciendo la maceración ácida de la laminilla media y la tinción selectiva de la cromatina (Udenar, 2017).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Ciclos de Enfriamiento y Bioseguridad</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Se deja enfriar la preparación entre 5 y 10 minutos y se repite el calentamiento 3 veces más; durante todo el procedimiento es obligatorio utilizar guantes quirúrgicos y tapabocas debido a la peligrosidad y toxicidad de los vapores de orceína (Udenar, 2017).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Paso 3 -->
+                <article class="interactive-card protocol-card highlight-emerald" data-split-pos="left">
+                    <span class="step-pill">PASO 03 · SQUASH Y 40X</span>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_squash.jpg"
+                             data-dark-src="img_squash.jpg"
+                             data-light-src="img_squash.jpg"
+                             alt="Montaje por squash y observación a 40X">
+                    </div>
+                    <div class="card-top">
+                        <h3>Montaje Squash y 40X</h3>
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_squash.jpg"
+                              data-light-src="img_squash.jpg">
+                        <div class="concept-item">
+                            <h4>Técnica de Aplastamiento (Squash)</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Se deposita la muestra teñida sobre un portaobjetos y, con ayuda del cubreobjetos, se ejerce presión vertical firme cuidando que no se corra la laminilla para dispersar las microesporas en un solo plano focal (Udenar, 2017).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Ubicación de Microesporas y Enfoque a 40X</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Se examina inicialmente la preparación en el microscopio óptico con el objetivo de menor aumento para ubicar las zonas con figuras meióticas y posteriormente se cambia al objetivo de 40X (400X totales) para diferenciar e ilustrar cada fase (Udenar, 2017).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 9: RESULTADOS I - PROFASE I A 100X /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="8">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">09</span>
+                <h2 class="slide-heading">RESULTADOS I: MICROFOTOGRAFÍAS DE PROFASE I A 100X</h2>
+            </header>
+
+            <div class="layout-bento-results" style="--i: 2;">
+                <article class="interactive-card visual-only-card">
+                    <div class="card-top">
+                        <span class="index-chip">OBSERVACIÓN ÓPTICA A 1000X (OBJETIVO 100X)</span>
+                        <h3>Secuencia Inicial de Profase I</h3>
+                    </div>
+                    <div class="media-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_muestra1_100x.jpg"
+                             data-dark-src="img_muestra1_100x.jpg"
+                             data-light-src="img_muestra1_100x.jpg"
+                             alt="Campo microfotográfico de Profase I a 100X">
+                    </div>
+                </article>
+
+                <div class="bento-right-column">
+                    <article class="interactive-card split-horizontal-card compact-card visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_leptoteno_100x.jpg"
+                                 data-dark-src="img_leptoteno_100x.jpg"
+                                 data-light-src="img_leptoteno_100x.jpg"
+                                 alt="Microfotografía de Leptoteno a 100X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 100X</span>
+                            <h3>Leptoteno</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-violet visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_cigoteno_100x.jpg"
+                                 data-dark-src="img_cigoteno_100x.jpg"
+                                 data-light-src="img_cigoteno_100x.jpg"
+                                 alt="Microfotografía de Cigoteno a 100X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 100X</span>
+                            <h3>Cigoteno</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-emerald visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_paquiteno_100x.jpg"
+                                 data-dark-src="img_paquiteno_100x.jpg"
+                                 data-light-src="img_paquiteno_100x.jpg"
+                                 alt="Microfotografía de Paquiteno a 100X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 100X</span>
+                            <h3>Paquiteno</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 10: RESULTADOS II - PROFASE I Y METAFASE I A 100X /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="9">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">10</span>
+                <h2 class="slide-heading">RESULTADOS II: MICROFOTOGRAFÍAS DE MEIOSIS I A 100X</h2>
+            </header>
+
+            <div class="layout-bento-results" style="--i: 2;">
+                <article class="interactive-card visual-only-card">
+                    <div class="card-top">
+                        <span class="index-chip">OBSERVACIÓN ÓPTICA A 1000X (OBJETIVO 100X)</span>
+                        <h3>Secuencia Profase I — Metafase I</h3>
+                    </div>
+                    <div class="media-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_muestra2_100x.jpg"
+                             data-dark-src="img_muestra2_100x.jpg"
+                             data-light-src="img_muestra2_100x.jpg"
+                             alt="Campo microfotográfico general a 100X">
+                    </div>
+                </article>
+
+                <div class="bento-right-column">
+                    <article class="interactive-card split-horizontal-card compact-card visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_diploteno_100x.jpg"
+                                 data-dark-src="img_diploteno_100x.jpg"
+                                 data-light-src="img_diploteno_100x.jpg"
+                                 alt="Microfotografía de Diploteno a 100X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 100X</span>
+                            <h3>Diploteno</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-violet visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_diacinesis_100x.jpg"
+                                 data-dark-src="img_diacinesis_100x.jpg"
+                                 data-light-src="img_diacinesis_100x.jpg"
+                                 alt="Microfotografía de Diacinesis a 100X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 100X</span>
+                            <h3>Diacinesis</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-emerald visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_metafase1_100x.jpg"
+                                 data-dark-src="img_metafase1_100x.jpg"
+                                 data-light-src="img_metafase1_100x.jpg"
+                                 alt="Microfotografía de Metafase I a 100X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">MEIOSIS I · 100X</span>
+                            <h3>Metafase I</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 11: RESULTADOS III - MEIOSIS I A 40X /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="10">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">11</span>
+                <h2 class="slide-heading">RESULTADOS III: MICROFOTOGRAFÍAS DE MEIOSIS I A 40X</h2>
+            </header>
+
+            <div class="layout-bento-results" style="--i: 2;">
+                <article class="interactive-card visual-only-card">
+                    <div class="card-top">
+                        <span class="index-chip">OBSERVACIÓN ÓPTICA A 400X (OBJETIVO 40X)</span>
+                        <h3>Transición de Profase I a Metafase I</h3>
+                    </div>
+                    <div class="media-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_muestra3_40x.jpg"
+                             data-dark-src="img_muestra3_40x.jpg"
+                             data-light-src="img_muestra3_40x.jpg"
+                             alt="Campo microfotográfico de Meiosis I a 40X">
+                    </div>
+                </article>
+
+                <div class="bento-right-column">
+                    <article class="interactive-card split-horizontal-card compact-card visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_cigoteno_40x.jpg"
+                                 data-dark-src="img_cigoteno_40x.jpg"
+                                 data-light-src="img_cigoteno_40x.jpg"
+                                 alt="Cigoteno a 40X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 40X</span>
+                            <h3>Cigoteno</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-violet visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_diacinesis_40x.jpg"
+                                 data-dark-src="img_diacinesis_40x.jpg"
+                                 data-light-src="img_diacinesis_40x.jpg"
+                                 alt="Diacinesis a 40X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 40X</span>
+                            <h3>Diacinesis</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-emerald visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_metafase1_40x.jpg"
+                                 data-dark-src="img_metafase1_40x.jpg"
+                                 data-light-src="img_metafase1_40x.jpg"
+                                 alt="Metafase I a 40X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">MEIOSIS I · 40X</span>
+                            <h3>Metafase I</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 12: RESULTADOS IV - PROFASE I TARDÍA A 40X SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="11">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">12</span>
+                <h2 class="slide-heading">RESULTADOS IV: SUBETAPAS DE PROFASE I A 40X</h2>
+            </header>
+
+            <div class="layout-bento-results" style="--i: 2;">
+                <article class="interactive-card visual-only-card">
+                    <div class="card-top">
+                        <span class="index-chip">OBSERVACIÓN ÓPTICA A 400X (OBJETIVO 40X)</span>
+                        <h3>Subetapas Medias y Tardías de Profase I</h3>
+                    </div>
+                    <div class="media-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_muestra4_40x.jpg"
+                             data-dark-src="img_muestra4_40x.jpg"
+                             data-light-src="img_muestra4_40x.jpg"
+                             alt="Campo general de subetapas de Profase I a 40X">
+                    </div>
+                </article>
+
+                <div class="bento-right-column">
+                    <article class="interactive-card split-horizontal-card compact-card visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_paquiteno_40x.jpg"
+                                 data-dark-src="img_paquiteno_40x.jpg"
+                                 data-light-src="img_paquiteno_40x.jpg"
+                                 alt="Paquiteno a 40X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 40X</span>
+                            <h3>Paquiteno</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-violet visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_diploteno_40x.jpg"
+                                 data-dark-src="img_diploteno_40x.jpg"
+                                 data-light-src="img_diploteno_40x.jpg"
+                                 alt="Diploteno a 40X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 40X</span>
+                            <h3>Diploteno</h3>
+                        </div>
+                    </article>
+
+                    <article class="interactive-card split-horizontal-card compact-card highlight-emerald visual-only-card">
+                        <div class="media-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_diacinesis_40x2.jpg"
+                                 data-dark-src="img_diacinesis_40x2.jpg"
+                                 data-light-src="img_diacinesis_40x2.jpg"
+                                 alt="Diacinesis a 40X">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">PROFASE I · 40X</span>
+                            <h3>Diacinesis</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 13: DISCUSIÓN TEÓRICA CROMOSÓMICA
+             ================================================================= -->
+        <section class="slide is-future" data-slide="12">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">13</span>
+                <h2 class="slide-heading">DISCUSIÓN TEÓRICA</h2>
+            </header>
+
+            <div class="layout-discussion-trio" style="--i: 2;">
+                <!-- Inflorescencias -->
+                <article class="interactive-card" data-split-pos="left">
+                    <div class="card-top">
+                        <span class="index-chip">01</span>
+                        <h3>Meiosis en Inflorescencias</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_inflorescencias_dark.jpg"
+                             data-dark-src="img_inflorescencias_dark.jpg"
+                             data-light-src="img_inflorescencias_light.jpg"
+                             alt="Meiosis exclusiva en inflorescencias">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_inflorescencias_dark.jpg"
+                              data-light-src="img_inflorescencias_light.jpg">
+                        <div class="concept-item">
+                            <h4>Alternancia de Generaciones y Esporogénesis</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Las plantas presentan un ciclo sexual con alternancia de generaciones (meiosis espórica o intermedia). En el esporofito diploide (2n), la meiosis se restringe exclusivamente a las inflorescencias (anteras jóvenes y óvulos), donde las células madre de las esporas sufren esporogénesis para producir esporas haploides (n) que originan el gametofito (Udenar, 2017; Karp et al., 2020; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Mitosis en Órganos Vegetativos Somáticos</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Los demás tejidos de la planta (raíces, tallos y hojas) son somáticos y se dividen exclusivamente por mitosis para garantizar el crecimiento vegetativo y la reparación tisular, conservando idéntica la dotación diploide (2n) del cigoto (Udenar, 2017; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Polos Anafase I vs II -->
+                <article class="interactive-card highlight-violet" data-split-pos="right">
+                    <div class="card-top">
+                        <span class="index-chip">02</span>
+                        <h3>Polos de Anafase I y II</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_polos_anafase_dark.jpg"
+                             data-dark-src="img_polos_anafase_dark.jpg"
+                             data-light-src="img_polos_anafase_light.jpg"
+                             alt="Comparación de polos en Anafase I y Anafase II">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_polos_anafase_dark.jpg"
+                              data-light-src="img_polos_anafase_light.jpg">
+                        <div class="concept-item">
+                            <h4>Igualdad en el Número Cromosómico (n)</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>En ausencia de errores de segregación, los dos polos observados en Anafase I poseen exactamente el mismo número cromosómico haploide (n), y los polos observados en Anafase II también presentan ese mismo número de cromosomas (n) (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Diferencia en el Número de Cromátidas y Contenido C</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>En cada polo de Anafase I los n cromosomas son cromosomas duplicados compuestos por dos cromátidas hermanas unidas por el centrómero (contenido 2C de ADN), mientras que en cada polo de Anafase II los n cromosomas están formados por una sola cromátida individual (contenido 1C de ADN) (Udenar, 2017; Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Centrómeros Maternos y Paternos -->
+                <article class="interactive-card highlight-emerald" data-split-pos="left">
+                    <div class="card-top">
+                        <span class="index-chip">03</span>
+                        <h3>Centrómeros Parentales</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_centromeros_dark.jpg"
+                             data-dark-src="img_centromeros_dark.jpg"
+                             data-light-src="img_centromeros_light.jpg"
+                             alt="Segregación de centrómeros maternos y paternos">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_centromeros_dark.jpg"
+                              data-light-src="img_centromeros_light.jpg">
+                        <div class="concept-item">
+                            <h4>Proporción Exacta en Todas las Células Somáticas</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>Sí se espera que todas las células somáticas diploides del organismo tengan exactamente el mismo número de centrómeros maternos que paternos (n de cada progenitor), ya que todas descienden del cigoto mediante mitosis sucesivas que transmiten ambos juegos homólogos sin alteración (Udenar, 2017; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Distribución Independiente y Azarosa en cada Gameto</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>En cada gameto producido NO se espera igual número de centrómeros maternos y paternos: en la placa de Metafase I cada bivalente se orienta de forma independiente y aleatoria hacia cualquiera de los polos, generando 2<sup>n</sup> combinaciones posibles de centrómeros parentales (Udenar, 2017; Karp et al., 2020; Urry et al., 2024).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 14: CLÍNICA Y ANOMALÍAS /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="13">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">14</span>
+                <h2 class="slide-heading">ANOMALÍAS</h2>
+            </header>
+
+            <div class="layout-clinical-asymmetric" style="--i: 2;">
+                <!-- Izquierda: No Disyunción Meiótica -->
+                <article class="interactive-card" data-split-pos="left">
+                    <div class="card-top">
+                        <span class="index-chip">ETIOLOGÍA MEIÓTICA</span>
+                        <h3>No Disyunción Meiótica</h3>
+                    </div>
+                    <div class="media-box card-preview-box">
+                        <img class="lightbox-item theme-img"
+                             src="img_no_disyuncion_dark.jpg"
+                             data-dark-src="img_no_disyuncion_dark.jpg"
+                             data-light-src="img_no_disyuncion_light.jpg"
+                             alt="No disyunción meiótica primaria y secundaria">
+                    </div>
+                    <template class="split-data-template"
+                              data-media-type="image"
+                              data-dark-src="img_no_disyuncion_dark.jpg"
+                              data-light-src="img_no_disyuncion_light.jpg">
+                        <div class="concept-item">
+                            <h4>No Disyunción Primaria (Meiosis I) y Secundaria (Meiosis II)</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La no disyunción ocurre cuando un par de cromosomas homólogos no se separa en Meiosis I (no disyunción primaria, donde el 100 % de las células haploides resultan anormales) o cuando las cromátidas hermanas no se separan en Meiosis II (no disyunción secundaria, que afecta a dos de los cuatro gametos) (Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Formación de Cigotos Aneuploides y Susceptibilidad en Meiosis I</h4>
+                            <div class="concept-drawer">
+                                <div class="concept-drawer-inner">
+                                    <p>La fecundación de un gameto con un cromosoma extra (n + 1) o ausente (n − 1) por un gameto normal (n = 23) origina una aneuploidía: trisomía (47 cromosomas) o monosomía (45 cromosomas). En humanos es más frecuente en la Meiosis I materna debido al prolongado arresto de los ovocitos en Profase I y al deterioro progresivo de la cohesina o de quiasmas terminales (Karp et al., 2020).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <!-- Derecha: 3 Tarjetas Apiladas (Patau, Turner y Down) -->
+                <div class="clinical-right-stack-3">
+                    <!-- Síndrome de Patau -->
+                    <article class="interactive-card split-horizontal-card compact-card highlight-rose" data-split-pos="right">
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_sindrome_patau_dark.jpg"
+                                 data-dark-src="img_sindrome_patau_dark.jpg"
+                                 data-light-src="img_sindrome_patau_light.jpg"
+                                 alt="Síndrome de Patau">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">ANOMALÍA AUTOSÓMICA · 01</span>
+                            <h3>Síndrome de Patau</h3>
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_sindrome_patau_dark.jpg"
+                                  data-light-src="img_sindrome_patau_light.jpg">
+                            <div class="concept-item">
+                                <h4>Etiología por Copia Extra del Cromosoma 13</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>El síndrome de Patau se produce por la presencia de una copia adicional del cromosoma 13 (trisomía 13, 47 cromosomas), originada al fusionarse un gameto disómico para el par 13 (producto de no disyunción meiótica) con un gameto normal (Udenar, 2017; Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Cuadro Fenotípico y Severidad</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Los recién nacidos desarrollan anomalías congénitas múltiples y severas —como labio leporino, paladar hendido, ojos pequeños (microftalmia) y polidactilia (dedos adicionales en manos y pies)— que suelen comprometer la vida poco después del nacimiento (Udenar, 2017; Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+
+                    <!-- Síndrome de Turner -->
+                    <article class="interactive-card split-horizontal-card compact-card highlight-violet" data-split-pos="left">
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_sindrome_turner_dark.jpg"
+                                 data-dark-src="img_sindrome_turner_dark.jpg"
+                                 data-light-src="img_sindrome_turner_light.jpg"
+                                 alt="Síndrome de Turner">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">ANOMALÍA SEXUAL · 02</span>
+                            <h3>Síndrome de Turner</h3>
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_sindrome_turner_dark.jpg"
+                                  data-light-src="img_sindrome_turner_light.jpg">
+                            <div class="concept-item">
+                                <h4>Presencia de un Único Cromosoma Sexual (Cariotipo 45, X)</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Mientras que todas las monosomías autosómicas son letales en etapa embrionaria, un cigoto portador de un único cromosoma X y sin segundo cromosoma sexual (notación XO; 45 cromosomas) por no disyunción meiótica es viable y se desarrolla como mujer con síndrome de Turner (Udenar, 2017; Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Manifestación Clínica en la Pubertad</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Las pacientes muestran pocos defectos aparentes durante la niñez hasta llegar a la pubertad, momento en el que el desarrollo genital queda detenido en estado juvenil y no desarrollan senos normales ni órganos sexuales internos funcionales (fallo en el desarrollo ovárico) (Udenar, 2017; Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+
+                    <!-- Síndrome de Down -->
+                    <article class="interactive-card split-horizontal-card compact-card highlight-emerald" data-split-pos="right">
+                        <div class="media-box card-preview-box">
+                            <img class="lightbox-item theme-img"
+                                 src="img_sindrome_down_dark.jpg"
+                                 data-dark-src="img_sindrome_down_dark.jpg"
+                                 data-light-src="img_sindrome_down_light.jpg"
+                                 alt="Síndrome de Down o Trisomía 21">
+                        </div>
+                        <div class="card-body">
+                            <span class="index-chip">ANOMALÍA AUTOSÓMICA · 03</span>
+                            <h3>Síndrome de Down</h3>
+                        </div>
+                        <template class="split-data-template"
+                                  data-media-type="image"
+                                  data-dark-src="img_sindrome_down_dark.jpg"
+                                  data-light-src="img_sindrome_down_light.jpg">
+                            <div class="concept-item">
+                                <h4>Dosis Génica del Cromosoma 21 (Trisomía 21)</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Causado por una copia extra del cromosoma 21 (47 cromosomas). Al ser el autosoma humano más pequeño (con menos de 400 genes), es la única trisomía autosómica compatible con una supervivencia posnatal prolongada; no obstante, la sobreexpresión de sus genes y factores de transcripción altera múltiples procesos del desarrollo (Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Cuadro Clínico y Predominio en la Meiosis I Materna</h4>
+                                <div class="concept-drawer">
+                                    <div class="concept-drawer-inner">
+                                        <p>Cursa con distintos grados de discapacidad intelectual, rasgos corporales característicos, alteraciones circulatorias, mayor susceptibilidad a infecciones y riesgo elevado de leucemia y enfermedad de Alzheimer de inicio temprano. Cerca del 95 % de las trisomías 21 provienen de no disyunción en la madre (principalmente durante la Meiosis I), cuya incidencia aumenta drásticamente con la edad materna (Karp et al., 2020).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 15: BIBLIOGRAFÍA /SantixCode
+             ================================================================= -->
+        <section class="slide is-future" data-slide="14">
+            <header class="slide-header" style="--i: 1;">
+                <span class="slide-badge">15</span>
+                <h2 class="slide-heading">BIBLIOGRAFÍA ACADÉMICA Y DE IMÁGENES</h2>
+            </header>
+
+            <div class="layout-bibliography-accordion" style="--i: 2;">
+                <!-- Tarjeta 1: Referencias de Conceptos Teóricos y de Laboratorio -->
+                <article class="interactive-card accordion-card biblio-accordion-card" tabindex="0">
+                    <div class="card-top">
+                        <span class="index-chip">FUENTES TEÓRICAS Y METODOLÓGICAS</span>
+                        <h3>Bibliografía de Conceptos Teóricos</h3>
+                    </div>
+                    <div class="accordion-drawer">
+                        <div class="accordion-inner">
+                            <div class="accordion-summary biblio-summary">
+                                <div class="summary-point">
+                                    <h4>Karp, G., Iwasa, J., &amp; Marshall, W. (2020).</h4>
+                                    <p><em>Karp's cell and molecular biology: Concepts and experiments</em> (9.ª ed., Sección 14.5: Meiosis, pp. 1443–1469). John Wiley &amp; Sons.</p>
+                                </div>
+                                <div class="summary-point">
+                                    <h4>Urry, L. A., Cain, M. L., Wasserman, S. A., Minorsky, P. V., Orr, R. B., &amp; Hull, K. (2024).</h4>
+                                    <p><em>Campbell biology</em> (13.ª ed., Capítulo 13: Meiosis and sexual life cycles, pp. 258–272). Pearson.</p>
+                                </div>
+                                <div class="summary-point">
+                                    <h4>Universidad de Nariño. (2017).</h4>
+                                    <p>Práctica 5.13: Meiosis. En <em>Manual de laboratorio de biología celular</em> (pp. 75–79). Departamento de Biología, Facultad de Ciencias Exactas y Naturales.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 2: Referencias de Imágenes -->
+                <article class="interactive-card accordion-card biblio-accordion-card highlight-violet" tabindex="0">
+                    <div class="card-top">
+                        <span class="index-chip">ICONOGRAFÍA</span>
+                        <h3>Bibliografía de Imágenes</h3>
+                    </div>
+                    <div class="accordion-drawer">
+                        <div class="accordion-inner">
+                            <div class="accordion-summary biblio-summary">
+                                <div class="summary-point">
+                                    <h4>Google. (2026).</h4>
+                                    <p>Google. (2026). <em>Nano Banana</em> [Modelo de generación de imágenes IA]. https://gemini.google.com/ (Figuras generadas mediante instrucciones textuales correspondientes a 8.1, 8.2, 8.3, 13.1, 13.2, 13.3, 14.1 y 14.2).</p>
+                                </div>
+                                <div class="summary-point">
+                                    <h4>Karp, G., Iwasa, J., &amp; Marshall, W. (2020).</h4>
+                                    <p>Karp, G., Iwasa, J., &amp; Marshall, W. (2020). <em>Biología Celular y Molecular: Conceptos y Experimentos</em>. John Wiley &amp; Sons (Figuras 2.1, figuras correspondientes a las secciones 5 a 7, y 14.0).</p>
+                                </div>
+                                <div class="summary-point">
+                                    <h4>Biology Simulations. (s.f.).</h4>
+                                    <p>Biology Simulations. (s.f.). <em>Meiosis Lab</em> [Simulaciones interactivas]. https://biologysimulations.co.uk/simulations/meiosis/Meiosis_Lab (Conjunto de 10 simulaciones utilizadas para el análisis de los procesos meióticos).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DIAPOSITIVA 16: CIERRE Y AGRADECIMIENTO /SantixMtt
+             ================================================================= -->
+        <section class="slide is-future" data-slide="15">
+            <div class="hero-stage">
+                <div class="tetrad-orbital hero-reveal" style="--stagger: 1;">
+                    <div class="haploid-cell">n</div>
+                    <div class="haploid-cell">n</div>
+                    <div class="haploid-cell">n</div>
+                    <div class="haploid-cell">n</div>
+                </div>
+                <span class="institution-badge hero-reveal" style="--stagger: 2;">
+                    UNIVERSIDAD DE NARIÑO · BIOLOGÍA CELULAR
+                </span>
+                <h2 class="closing-title hero-reveal" style="--stagger: 3;">¡GRACIAS!</h2>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Navegación Minimalista por Puntos (16 Dots) + Botón de Tema Claro/Oscuro -->
+    <nav class="dot-navigation" aria-label="Navegación de diapositivas">
+        <button type="button" class="dot-btn active" data-slide-target="0" aria-label="Diapositiva 1"></button>
+        <button type="button" class="dot-btn" data-slide-target="1" aria-label="Diapositiva 2"></button>
+        <button type="button" class="dot-btn" data-slide-target="2" aria-label="Diapositiva 3"></button>
+        <button type="button" class="dot-btn" data-slide-target="3" aria-label="Diapositiva 4"></button>
+        <button type="button" class="dot-btn" data-slide-target="4" aria-label="Diapositiva 5"></button>
+        <button type="button" class="dot-btn" data-slide-target="5" aria-label="Diapositiva 6"></button>
+        <button type="button" class="dot-btn" data-slide-target="6" aria-label="Diapositiva 7"></button>
+        <button type="button" class="dot-btn" data-slide-target="7" aria-label="Diapositiva 8"></button>
+        <button type="button" class="dot-btn" data-slide-target="8" aria-label="Diapositiva 9"></button>
+        <button type="button" class="dot-btn" data-slide-target="9" aria-label="Diapositiva 10"></button>
+        <button type="button" class="dot-btn" data-slide-target="10" aria-label="Diapositiva 11"></button>
+        <button type="button" class="dot-btn" data-slide-target="11" aria-label="Diapositiva 12"></button>
+        <button type="button" class="dot-btn" data-slide-target="12" aria-label="Diapositiva 13"></button>
+        <button type="button" class="dot-btn" data-slide-target="13" aria-label="Diapositiva 14"></button>
+        <button type="button" class="dot-btn" data-slide-target="14" aria-label="Diapositiva 15"></button>
+        <button type="button" class="dot-btn" data-slide-target="15" aria-label="Diapositiva 16"></button>
+        <span class="nav-divider"></span>
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Cambiar modo claro u oscuro">
+            <span class="theme-icon-orb"></span>
+        </button>
+    </nav>
+
+    <!-- Vista Dividida al Abrir una Tarjeta de Contenido -->
+    <div class="split-view-modal" id="splitViewModal" aria-hidden="true">
+        <div class="split-view-dialog" id="splitViewDialog">
+            <button type="button" class="split-close-indicator" id="splitCloseBtn" aria-label="Cerrar vista"></button>
+            <div class="split-view-grid" id="splitViewGrid" data-sim-side="left">
+                <!-- Columna Visual -->
+                <div class="split-sim-column">
+                    <div class="media-box split-sim-stage" id="splitSimStage"></div>
+                </div>
+                <!-- Columna Opuesta: Tarjetas de Conceptos Bento-Flex en Acordeón Exclusivo -->
+                <div class="split-concepts-column">
+                    <header class="split-concepts-header">
+                        <span class="index-chip" id="splitCardIndex"></span>
+                        <h3 class="split-card-title" id="splitCardTitle"></h3>
+                        <div class="kw-row" id="splitCardKeywords"></div>
+                    </header>
+                    <div class="split-concepts-list" id="splitConceptsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Nativo a Pantalla Completa -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+        <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+<!-- ===================
+         SantixCode
+     =================== -->
