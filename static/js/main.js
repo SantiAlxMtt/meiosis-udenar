@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentIndex = 0;
     let isTransitioning = false;
+    let ignoreNextPopState = false;
     const totalSlides = slides.length;
 
     const VIDEO_SVG_ICON = `
@@ -148,27 +149,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================================
-    // 3. NATIVE FULLSCREEN LIGHTBOX
+    // 3. NATIVE FULLSCREEN LIGHTBOX WITH HISTORY STATE SUPPORT
     // =========================================================================
     function openLightboxWithNode(node) {
         if (!lightboxModal || !lightboxContent) return;
+        const wasAlreadyOpen = lightboxModal.classList.contains("open");
+
         lightboxContent.innerHTML = "";
         lightboxContent.appendChild(node);
         lightboxModal.classList.add("open");
         lightboxModal.setAttribute("aria-hidden", "false");
+
+        if (!wasAlreadyOpen) {
+            window.history.pushState({ udeLayer: "lightbox" }, "");
+        }
     }
 
-    function closeLightbox() {
+    function closeLightbox(fromPopState = false) {
         if (!lightboxModal || !lightboxModal.classList.contains("open")) return;
+        const isPopState = fromPopState === true;
+
         lightboxModal.classList.remove("open");
         lightboxModal.setAttribute("aria-hidden", "true");
         setTimeout(() => {
             lightboxContent.innerHTML = "";
         }, 420);
+
+        if (!isPopState && window.history.state && window.history.state.udeLayer === "lightbox") {
+            ignoreNextPopState = true;
+            window.history.back();
+        }
     }
 
     if (lightboxModal) {
-        lightboxModal.addEventListener("click", closeLightbox);
+        lightboxModal.addEventListener("click", () => {
+            closeLightbox(false);
+        });
     }
 
     function buildLightboxMediaClone(mediaEl) {
@@ -421,6 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const template = card.querySelector(".split-data-template");
         if (!template) return;
 
+        const wasAlreadyOpen = splitViewModal.classList.contains("open");
         const chipEl = card.querySelector(".index-chip, .step-pill");
         const titleEl = card.querySelector("h3");
         const kwRowEl = card.querySelector(".kw-row");
@@ -445,15 +462,26 @@ document.addEventListener("DOMContentLoaded", () => {
         card.classList.add("revealed");
         splitViewModal.classList.add("open");
         splitViewModal.setAttribute("aria-hidden", "false");
+
+        if (!wasAlreadyOpen) {
+            window.history.pushState({ udeLayer: "splitView" }, "");
+        }
     }
 
-    function closeCardSplitView() {
+    function closeCardSplitView(fromPopState = false) {
         if (!splitViewModal || !splitViewModal.classList.contains("open")) return;
+        const isPopState = fromPopState === true;
+
         splitViewModal.classList.remove("open");
         splitViewModal.setAttribute("aria-hidden", "true");
         setTimeout(() => {
             splitSimStage.innerHTML = "";
         }, 420);
+
+        if (!isPopState && window.history.state && window.history.state.udeLayer === "splitView") {
+            ignoreNextPopState = true;
+            window.history.back();
+        }
     }
 
     cards.forEach((card) => {
@@ -469,6 +497,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (card.classList.contains("accordion-card")) {
                 e.stopPropagation();
                 const isAlreadyExpanded = card.classList.contains("expanded");
+                const hadExpandedAccordion = document.querySelector(".accordion-card.expanded") !== null;
                 const parentSlide = card.closest(".slide");
                 const siblingAccordions = parentSlide
                     ? Array.from(parentSlide.querySelectorAll(".accordion-card"))
@@ -480,6 +509,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (!isAlreadyExpanded) {
                     card.classList.add("expanded", "revealed");
+                    if (!hadExpandedAccordion) {
+                        window.history.pushState({ udeLayer: "accordion" }, "");
+                    }
+                } else if (
+                    hadExpandedAccordion &&
+                    window.history.state &&
+                    window.history.state.udeLayer === "accordion"
+                ) {
+                    ignoreNextPopState = true;
+                    window.history.back();
                 }
                 return;
             }
@@ -508,20 +547,48 @@ document.addEventListener("DOMContentLoaded", () => {
     if (splitCloseBtn) {
         splitCloseBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            closeCardSplitView();
+            closeCardSplitView(false);
         });
     }
 
     if (splitViewModal && splitViewDialog) {
         splitViewModal.addEventListener("click", (e) => {
             if (!splitViewDialog.contains(e.target)) {
-                closeCardSplitView();
+                closeCardSplitView(false);
             }
         });
     }
 
     // =========================================================================
-    // 6. FULLSCREEN ('F' KEY) AND KEYBOARD CONTROLS
+    // 6. MOBILE BACK GESTURE & BROWSER HISTORY INTERCEPTION (POPSTATE)
+    // =========================================================================
+    window.addEventListener("popstate", () => {
+        if (ignoreNextPopState) {
+            ignoreNextPopState = false;
+            return;
+        }
+
+        // Priority 1: If Fullscreen Lightbox is open, close it and remain on card/slide
+        if (lightboxModal && lightboxModal.classList.contains("open")) {
+            closeLightbox(true);
+            return;
+        }
+
+        // Priority 2: If Split View Card is open, close it and remain on current slide
+        if (splitViewModal && splitViewModal.classList.contains("open")) {
+            closeCardSplitView(true);
+            return;
+        }
+
+        // Priority 3: If an Accordion Card is expanded, collapse it and remain on slide
+        const expandedAccordions = Array.from(document.querySelectorAll(".accordion-card.expanded"));
+        if (expandedAccordions.length > 0) {
+            expandedAccordions.forEach((acc) => acc.classList.remove("expanded"));
+        }
+    });
+
+    // =========================================================================
+    // 7. FULLSCREEN ('F' KEY) AND KEYBOARD CONTROLS
     // =========================================================================
     function toggleFullscreen() {
         if (!document.fullscreenElement) {
@@ -533,11 +600,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && lightboxModal && lightboxModal.classList.contains("open")) {
-            closeLightbox();
+            closeLightbox(false);
             return;
         }
         if (e.key === "Escape" && splitViewModal && splitViewModal.classList.contains("open")) {
-            closeCardSplitView();
+            closeCardSplitView(false);
             return;
         }
         if (e.key === "f" || e.key === "F") {
@@ -573,7 +640,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =========================================================================
-    // 7. SINGLE-INSTANCE TOUCH SWIPE FOR MOBILE AND TABLETS
+    // 8. SINGLE-INSTANCE TOUCH SWIPE FOR MOBILE AND TABLETS
     // =========================================================================
     let touchStartX = 0;
     let touchStartY = 0;
